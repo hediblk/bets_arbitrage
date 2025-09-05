@@ -5,7 +5,7 @@ from arb import is_arbitrage, arbitrage_stakes
 
 def check_arb():
     """Validate inputs, compute arbitrage result, and display inline."""
-    # Reset styling
+
     result_label.configure(foreground="#222")
     try:
         odds_a = float(entry_odds_a.get().strip())
@@ -27,7 +27,7 @@ def check_arb():
 
     if is_arbitrage(odds_a, odds_b):
         stake_a, stake_b = arbitrage_stakes(odds_a, odds_b, max_bet)
-        total_return = stake_a * odds_a  # should equal stake_b * odds_b
+        total_return = stake_a * odds_a
         profit = total_return - max_bet
         result_var.set(
             f"Arbitrage found:\nStake A: ${stake_a:.2f} @ {odds_a:.2f}\n"
@@ -54,7 +54,6 @@ root.title("Arbitrage Calculator")
 root.resizable(False, False)
 
 try:
-    # Use a nicer built-in theme if available
     style = ttk.Style()
     for theme in ("clam", "alt", "default", "classic"):
         if theme in style.theme_names():

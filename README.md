@@ -17,4 +17,6 @@ The built app will be in the `dist/` folder. Or simply run the app with:
 python3 gui.py
 ```
 
-
+## Next steps
+- Handle 3 or more outcomes (e.g., football matches with win/draw/lose outcomes).
+- Compute least possible loss even when no arbitrage exists.
